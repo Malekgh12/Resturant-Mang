@@ -3,7 +3,7 @@ package com.university.Restaurant_management.Entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Menu")
+@Table(name = "MenuDuJour")
 public class Menu {
 
     @Id
@@ -11,14 +11,17 @@ public class Menu {
     @Column(name = "Id")
     private long id;
 
-    @Column(name = "Name")
-    private String Name;
+    @Column(name = "Entrees")
+    private String Entrees;
 
-    @Column(name= "Description")
-    private String Description;
+    @Column(name= "Suite")
+    private String Suite;
+
+    @Column(name = "Dessert")
+    private String Dessert;
 
     @Column(name = "Prix")
-    private int Prix;
+    private double Prix;
 
     public long getId() {
         return id;
@@ -28,27 +31,35 @@ public class Menu {
         this.id = id;
     }
 
-    public String getName() {
-        return Name;
+    public String getEntrees() {
+        return Entrees;
     }
 
-    public void setName(String name) {
-        this.Name = name;
+    public void setEntrees(String entrees) {
+        Entrees = entrees;
     }
 
-    public String getDescription() {
-        return Description;
+    public String getSuite() {
+        return Suite;
     }
 
-    public void setDescription(String description) {
-        this.Description = description;
+    public void setSuite(String suite) {
+        Suite = suite;
     }
 
-    public int getPrix() {
+    public String getDessert() {
+        return Dessert;
+    }
+
+    public void setDessert(String dessert) {
+        Dessert = dessert;
+    }
+
+    public double getPrix() {
         return Prix;
     }
 
-    public void setPrix(int prix) {
+    public void setPrix(double prix) {
         this.Prix = prix;
     }
 }

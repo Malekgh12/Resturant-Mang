@@ -2,8 +2,8 @@ package com.university.Restaurant_management.Service;
 
 
 import com.university.Restaurant_management.Entity.Menu;
-
 import com.university.Restaurant_management.Repository.MenuRepository;
+import com.university.Restaurant_management.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,4 +25,25 @@ public class MenuService {
     public Menu createMenu(Menu menu){
         return menuRepository.save(menu);
     }
+
+    public Menu UpadteMenu(Long id , Menu menuDetails){
+        Menu menu = menuRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Menu not found"));
+
+        menu.setEntrees(menuDetails.getEntrees());
+        menu.setSuite(menuDetails.getSuite());
+        menu.setDessert(menuDetails.getDessert());
+        menu.setPrix(menuDetails.getPrix());
+
+        return menuRepository.save(menu);
+
+    }
+
+    public void deleteMenu(Long id){
+        Menu menu = menuRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Menu not found"));
+
+        menuRepository.delete(menu);
+    }
+
 }

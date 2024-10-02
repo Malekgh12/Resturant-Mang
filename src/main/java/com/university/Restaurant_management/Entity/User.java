@@ -3,7 +3,7 @@ package com.university.Restaurant_management.Entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "utilisateur")
+@Table(name = "User")
 public class User {
 
     @Id
@@ -24,7 +24,7 @@ public class User {
     private String Password;
 
     @Column(name = "numeroTélephone")
-    private int numeroTélephone;
+    private String numeroTélephone;
 
     public User() {
     }
@@ -69,11 +69,11 @@ public class User {
         Password = password;
     }
 
-    public int getNumeroTélephone() {
+    public String getNumeroTélephone() {
         return numeroTélephone;
     }
 
-    public void setNumeroTélephone(int numeroTélephone) {
+    public void setNumeroTélephone(String numeroTélephone) {
         this.numeroTélephone = numeroTélephone;
     }
 }

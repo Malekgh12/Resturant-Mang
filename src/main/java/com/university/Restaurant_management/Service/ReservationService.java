@@ -2,26 +2,46 @@ package com.university.Restaurant_management.Service;
 
 import com.university.Restaurant_management.Entity.Reservation;
 import com.university.Restaurant_management.Repository.ReservationRepository;
+import com.university.Restaurant_management.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 
 @Service
 public class ReservationService {
 
-    private final ReservationRepository reservationRepository;
-
     @Autowired
-    public  ReservationService(ReservationRepository reservationRepository) {
-        this.reservationRepository = reservationRepository;
-    }
+    private ReservationRepository reservationRepository;
 
-    public List<Reservation> getAllResevation(){
+
+    public  List<Reservation> getAllReservation(){
         return reservationRepository.findAll();
     }
 
-    public Reservation createReservation(Reservation reservation){
+    public Reservation createReservation (Reservation reservation){
         return reservationRepository.save(reservation);
     }
+
+    public Reservation UpadteReservation(Long id , Reservation reservationDetails){
+        Reservation reservation = reservationRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Reservation not found"));
+
+        reservation.setName(reservationDetails.getName());
+        reservation.setReservationTime(reservationDetails.getReservationTime());
+        reservation.setNombrePerson(reservationDetails.getNombrePerson());
+        reservation.setNombreTable(reservationDetails.getNombreTable());
+
+        return reservationRepository.save(reservation);
+
+    }
+
+    public void deleteReservation(Long id){
+        Reservation reservation = reservationRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Reservation not found"));
+
+        reservationRepository.delete(reservation);
+    }
+
 }

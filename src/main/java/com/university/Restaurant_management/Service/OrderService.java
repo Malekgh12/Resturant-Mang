@@ -2,6 +2,7 @@ package com.university.Restaurant_management.Service;
 
 import com.university.Restaurant_management.Entity.Order;
 import com.university.Restaurant_management.Repository.OrderRepository;
+import com.university.Restaurant_management.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,20 +10,35 @@ import java.util.List;
 
 @Service
 public class OrderService {
-    private final OrderRepository orderRepository;
 
     @Autowired
-    public  OrderService(OrderRepository orderRepository) {
-        this.orderRepository = orderRepository;
-    }
+    private OrderRepository orderRepository;
+
 
     public  List<Order> getAllOrder(){
         return orderRepository.findAll();
     }
 
-
     public Order createOrder(Order order){
         return orderRepository.save(order);
+    }
+
+    public Order UpadteOrder(Long idCommand , Order OrderDetails){
+        Order order = orderRepository.findById(idCommand)
+                .orElseThrow(()-> new ResourceNotFoundException("Order not found"));
+
+        order.setNameCommand(OrderDetails.getNameCommand());
+        order.setPrixCommand(OrderDetails.getPrixCommand());
+        order.setFraisLivraison(OrderDetails.getFraisLivraison());
+        return orderRepository.save(order);
+
+    }
+
+    public void deleteOrder(Long idCommand){
+        Order order = orderRepository.findById(idCommand)
+                .orElseThrow(()-> new ResourceNotFoundException("Order not found"));
+
+        orderRepository.delete(order);
     }
 
 
