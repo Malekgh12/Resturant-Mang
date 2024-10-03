@@ -14,12 +14,11 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-    @Autowired
-    UserRepository userRepository;
+
 
     @PostMapping("/AddUser")
     public User createUser(@RequestBody User user) {
-        return userRepository.save(user);
+        return userService.createUser(user);
     }
 
     @GetMapping

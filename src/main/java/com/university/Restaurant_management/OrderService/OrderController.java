@@ -12,12 +12,10 @@ import java.util.List;
 public class OrderController {
     @Autowired
     private OrderService orderService;
-    @Autowired
-    OrderRepository orderRepository;
 
     @PostMapping ("/AddOrder")
     public Order createOrder(@RequestBody Order order) {
-        return orderRepository.save(order);
+        return orderService.createOrder(order);
     }
 
     @GetMapping

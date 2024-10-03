@@ -14,12 +14,10 @@ import java.util.List;
 public class DishesContoller {
     @Autowired
     private DishesService dishesService;
-    @Autowired
-    DishesRepository dishesRepository;
 
     @PostMapping("/AddDishes")
     public Dishes createDishes(@RequestBody Dishes dishes) {
-        return dishesRepository.save(dishes);
+        return dishesService.createDishes(dishes);
     }
 
 

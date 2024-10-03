@@ -14,14 +14,11 @@ public class MenuController {
 
     @Autowired
     private MenuService menuService;
-    @Autowired
-    MenuRepository menuRepository;
 
     @PostMapping("/AddMenu")
     public Menu createMenu(@RequestBody Menu menu) {
-        return menuRepository.save(menu);
+        return menuService.createMenu(menu);
     }
-
 
     @GetMapping
     public ResponseEntity<List<Menu>> getAllMenu(){
