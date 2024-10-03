@@ -1,6 +1,9 @@
 package com.university.Restaurant_management.UserService;
 
+import com.university.Restaurant_management.ReservationService.Reservation;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "User")
@@ -26,8 +29,9 @@ public class User {
     @Column(name = "numeroTélephone")
     private String numeroTélephone;
 
-    public User() {
-    }
+    @OneToMany (mappedBy = "user")
+    private List <Reservation> reservations;
+
 
     public long getIdUser() {
         return idUser;
@@ -75,5 +79,13 @@ public class User {
 
     public void setNumeroTélephone(String numeroTélephone) {
         this.numeroTélephone = numeroTélephone;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
 }

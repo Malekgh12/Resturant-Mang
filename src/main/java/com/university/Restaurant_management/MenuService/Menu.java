@@ -1,6 +1,10 @@
 package com.university.Restaurant_management.MenuService;
 
+import com.university.Restaurant_management.OrderService.Order;
 import jakarta.persistence.*;
+
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "MenuDuJour")
@@ -22,6 +26,9 @@ public class Menu {
 
     @Column(name = "Prix")
     private double Prix;
+
+    @ManyToMany(mappedBy = "menus")
+    private List<Order> orders;
 
     public long getId() {
         return id;
@@ -60,6 +67,14 @@ public class Menu {
     }
 
     public void setPrix(double prix) {
-        this.Prix = prix;
+        Prix = prix;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 }

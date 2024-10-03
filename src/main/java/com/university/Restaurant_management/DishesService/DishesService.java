@@ -26,7 +26,7 @@ public class DishesService {
                 .orElseThrow(()-> new ResourceNotFoundException("Dishes not found"));
 
         dishes.setName(dishesDetails.getName());
-        dishes.setDiscription(dishesDetails.getName());
+        dishes.setDescription(dishesDetails.getDescription());
         dishes.setPrix(dishesDetails.getPrix());
         return dishesRepository.save(dishes);
 
