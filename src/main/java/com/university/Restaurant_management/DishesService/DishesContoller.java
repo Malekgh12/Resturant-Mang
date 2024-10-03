@@ -1,9 +1,7 @@
-package com.university.Restaurant_management.Controller;
+package com.university.Restaurant_management.DishesService;
 
 
-import com.university.Restaurant_management.Entity.Dishes;
-import com.university.Restaurant_management.Repository.DishesRepository;
-import com.university.Restaurant_management.Service.DishesService;;
+;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

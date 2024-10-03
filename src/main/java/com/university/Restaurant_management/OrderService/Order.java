@@ -1,4 +1,4 @@
-package com.university.Restaurant_management.Entity;
+package com.university.Restaurant_management.OrderService;
 
 import jakarta.persistence.*;
 

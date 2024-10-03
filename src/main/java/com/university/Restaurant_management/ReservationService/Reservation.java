@@ -1,4 +1,4 @@
-package com.university.Restaurant_management.Entity;
+package com.university.Restaurant_management.ReservationService;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;

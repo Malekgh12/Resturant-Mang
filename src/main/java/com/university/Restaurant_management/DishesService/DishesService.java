@@ -1,8 +1,6 @@
-package com.university.Restaurant_management.Service;
+package com.university.Restaurant_management.DishesService;
 
 
-import com.university.Restaurant_management.Entity.Dishes;
-import com.university.Restaurant_management.Repository.DishesRepository;
 import com.university.Restaurant_management.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

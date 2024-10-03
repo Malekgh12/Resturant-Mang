@@ -1,7 +1,6 @@
-package com.university.Restaurant_management.Entity;
+package com.university.Restaurant_management.DishesService;
 
 import jakarta.persistence.*;
-import jdk.jfr.Description;
 
 @Entity
 @Table(name = "Dishes")

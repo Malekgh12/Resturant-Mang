@@ -1,6 +1,5 @@
-package com.university.Restaurant_management.Repository;
+package com.university.Restaurant_management.OrderService;
 
-import com.university.Restaurant_management.Entity.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

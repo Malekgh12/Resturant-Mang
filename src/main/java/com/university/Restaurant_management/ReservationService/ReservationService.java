@@ -1,7 +1,5 @@
-package com.university.Restaurant_management.Service;
+package com.university.Restaurant_management.ReservationService;
 
-import com.university.Restaurant_management.Entity.Reservation;
-import com.university.Restaurant_management.Repository.ReservationRepository;
 import com.university.Restaurant_management.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

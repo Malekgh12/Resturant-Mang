@@ -1,7 +1,6 @@
-package com.university.Restaurant_management.Repository;
+package com.university.Restaurant_management.MenuService;
 
 
-import com.university.Restaurant_management.Entity.Menu;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

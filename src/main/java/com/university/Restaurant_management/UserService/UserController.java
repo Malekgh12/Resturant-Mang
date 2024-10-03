@@ -1,9 +1,6 @@
-package com.university.Restaurant_management.Controller;
+package com.university.Restaurant_management.UserService;
 
 
-import com.university.Restaurant_management.Entity.User;
-import com.university.Restaurant_management.Repository.UserRepository;
-import com.university.Restaurant_management.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
